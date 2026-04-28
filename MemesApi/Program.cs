@@ -4,16 +4,16 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers()
 .AddJsonOptions( options => {
-    options.JsonSerializerOptions.PropertyNmaingPolicy = JsonNamingPolicy.CamelCase;
+    options.JsonSerializerOptions.PropertyNamingPolicy = JsonNamingPolicy.CamelCase;
 });
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors(options => {
 options.AddPolicy("AllowAll", policy => {
-    policy.AllowAnyOrigin()
-    policy.AllowAnyMethod()
+    policy.AllowAnyOrigin();
+    policy.AllowAnyMethod();
     policy.AllowAnyHeader();
-})
+});
 });
 var app = builder.Build();
 
